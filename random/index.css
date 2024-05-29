@@ -1,0 +1,97 @@
+body {
+    text-align: center;
+    background: linear-gradient(to bottom, #6cb4de, #6cb4de, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
+    font-family: "Inconsolata", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#title {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.marquee-container {
+    width: 100%;
+    position: relative;
+    height: 200px; 
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+}
+
+.marquee img {
+    height: 100px; 
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Avstand mellom kortene */
+    margin-top: 50px;
+}
+
+.container {
+    width: 350px;
+    height: 500px;
+    perspective: 1000px; /* Økt for bedre 3D-effekt */
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d; /* Viktig for 3D-effekt */
+    transition: transform 1.5s;
+}
+
+.container:hover .card {
+    cursor: pointer;
+    transform: rotateY(180deg); /* Kun y-aksen nødvendig */
+}
+
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Skjuler baksiden når rotert */
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+}
+
+.front {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.back {
+    background-color: #eeb5f0;
+    transform: rotateY(180deg); /* Kun y-aksen nødvendig */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    gap: 5rem;
+    color: #fff;
+}
